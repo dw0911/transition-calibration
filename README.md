@@ -1,11 +1,11 @@
-# Beyond Marginal Coverage: Transition-Aware Uncertainty Calibration for Reliable Spatio-Temporal Forecasting
+# Beyond Marginal Coverage: Deployment-Observable Transition-Aware Uncertainty Calibration for Reliable Spatio-Temporal Forecasting
 
 ## Paper
 
 This repository is the official implementation of the paper:
 
-> **Beyond Marginal Coverage: Transition-Aware Uncertainty Calibration for Reliable
-> Spatio-Temporal Forecasting**
+> **Beyond Marginal Coverage: Deployment-Observable Transition-Aware Uncertainty
+> Calibration for Reliable Spatio-Temporal Forecasting**
 >
 > Ping Wang, Xiaoyuan Zhang
 >
@@ -121,12 +121,12 @@ python experiments/reproduce_bootstrap.py
 python experiments/conditioning_normalized.py
 python experiments/conditioning_flowstrat.py
 
-# --- Sensitivity analyses (Appendix Tables 7-9) ---
-python experiments/sensitivity_K.py           # bin count K in {3,5,7,10}
-python experiments/sensitivity_stats.py       # per-node severity statistic
-python experiments/sensitivity_alpha.py       # nominal alpha in {0.05,0.10,0.20}
+# --- Sensitivity analyses (Appendix Tables 6-8) ---
+python experiments/sensitivity_K.py           # bin count K in {3,5,7,10} (Table 6)
+python experiments/sensitivity_stats.py       # per-node severity statistic (Table 7)
+python experiments/sensitivity_alpha.py       # nominal alpha in {0.05,0.10,0.20} (Table 8)
 
-# --- Runtime overhead of the calibration layer (Appendix Table 10) ---
+# --- Runtime overhead of the calibration layer (Appendix Table 9) ---
 python experiments/benchmark_severity.py
 ```
 
@@ -182,8 +182,8 @@ If you use this code or the ideas in the paper, please cite:
 ```bibtex
 @article{transition_calibration,
   author  = {Wang, Ping and Zhang, Xiaoyuan},
-  title   = {Beyond Marginal Coverage: Transition-Aware Uncertainty Calibration for
-             Reliable Spatio-Temporal Forecasting},
+  title   = {Beyond Marginal Coverage: Deployment-Observable Transition-Aware
+             Uncertainty Calibration for Reliable Spatio-Temporal Forecasting},
   journal = {Applied Intelligence},
   year    = {2026}
 }
