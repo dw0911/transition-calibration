@@ -1,0 +1,25 @@
+# PEMS03 configuration (used by the paper reproduction scripts)
+dataset: PEMS03
+
+data:
+  num_nodes: 358
+  input_dim: 1            # flow only
+  target_dim: 0
+  his_steps: 12
+  pred_steps: 12
+  train_ratio: 0.6
+  val_ratio: 0.2
+
+evaluation:
+  alpha: 0.10
+  nominal: 0.90
+  mondrian_K: 5
+  valid_target: true>0 & finite
+
+bootstrap:
+  type: stationary (Politis-Romano)
+  block_lengths: [144, 288, 576]
+  n_boot: 1000
+  seeds: [42]
+
+seeds: [42]

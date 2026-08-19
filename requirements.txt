@@ -1,0 +1,8 @@
+# Core calibration/evaluation library (pure NumPy; tests run with these only)
+numpy>=1.24
+pandas>=1.5
+scipy>=1.10
+
+# Reproduction scripts (paper tables) additionally require:
+# - PyTorch >= 2.0 (CUDA) and the external BasicTS framework checkout
+#   (set BASICTS_ROOT to the framework directory)
