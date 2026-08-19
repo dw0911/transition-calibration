@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+
+# Data / checkpoints / logs (not part of the paper-release repository)
+data_preprocessing/processed/
+*.npz
+*.pkl
+*.pt
+*.log
+logs/
+runs/
+wandb/
+
+# Local / IDE
+.DS_Store
+.idea/
+.vscode/
