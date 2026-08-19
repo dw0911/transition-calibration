@@ -66,10 +66,29 @@ reproducible_uc/
 ├── checkpoints/                          # trained STAEformer checkpoints
 │   ├── PEMS04_r3_4split_seed42/best.pt
 │   ├── PEMS04_r3_4split_seed123/best.pt
-│   └── ...
+│   ├── PEMS04_r3_4split_seed456/best.pt
+│   └── PEMS03_r3_4split_seed42/best.pt
 └── BasicTS/                              # BasicTS framework checkout (set BASICTS_ROOT)
     └── datasets/PEMS04/data.dat, desc.json
 ```
+
+#### Downloading the checkpoints
+
+The checkpoints are distributed as a compressed archive in the companion data package
+(e.g. a GitHub Release asset). Download and unpack them with the provided helper:
+
+```bash
+# Method 1 -- helper script (downloads, sanitizes paths, optionally verifies SHA-256)
+export CHECKPOINT_URL=https://github.com/dw0911/transition-calibration/releases/download/v1.0/checkpoints_pems.zip
+python scripts/download_checkpoints.py --sha256 <expected-sha256>
+
+# Method 2 -- manual
+#   Download checkpoints_pems.zip and unpack it so that the files land under checkpoints/:
+#   unzip checkpoints_pems.zip -d .
+```
+
+The expected SHA-256 of each `best.pt` is listed in the data-package release notes
+(see also `checkpoints/README.md`).
 
 Set the environment variables and run:
 
@@ -101,8 +120,11 @@ evaluation/           frozen evaluation protocol, window-level stationary bootst
 data/                 PEMS preprocessing + time-index generation
 experiments/          reproduction scripts for the paper tables and training reference scripts
 tests/unit/           audit acceptance tests (pure NumPy)
+examples/             self-contained synthetic end-to-end demo (no data/GPU required)
+scripts/              utility scripts (e.g. checkpoint download helper)
 configs/              dataset configuration for the main reproduction runs
 figures/              generated figures
+checkpoints/          checkpoint layout + integrity notes (weights shipped via data package)
 SRC/                  backward-compatible import aliases (used by the scripts)
 ```
 
