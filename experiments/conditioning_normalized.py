@@ -21,6 +21,7 @@ import json
 
 REPRO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASICTS = os.environ.get('BASICTS_ROOT', '')
+CKPT_DIR = os.environ.get('REPRO_CKPT_DIR', os.path.join(REPRO_ROOT, 'checkpoints'))
 UC = REPRO_ROOT
 EXP = os.path.join(UC, 'experiments', 'artifacts')
 
@@ -70,8 +71,7 @@ def main():
         std_t = torch.tensor(std, dtype=torch.float32, device='cuda')
         for seed in cfg['seeds']:
             model = r3_eval.build_model(N).cuda()
-            sd = torch.load(os.path.join(UC, 'EXPERIMENTS', 'UC-G3', 'checkpoints',
-                                         f'{dataset}_r3_4split_seed{seed}', 'best.pt'),
+            sd = torch.load(os.path.join(CKPT_DIR, f'{dataset}_r3_4split_seed{seed}', 'best.pt'),
                             map_location='cpu', weights_only=False)
             if isinstance(sd, dict) and 'model_state_dict' in sd:
                 sd = sd['model_state_dict']

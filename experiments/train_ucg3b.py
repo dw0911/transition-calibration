@@ -15,10 +15,12 @@ import os, sys, argparse
 REPRO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASICTS = os.environ.get('BASICTS_ROOT', '')
 COURT = os.environ.get('COURT_ROOT', '')
+CKPT_DIR = os.environ.get('REPRO_CKPT_DIR', os.path.join(REPRO_ROOT, 'checkpoints'))
 UC = REPRO_ROOT
-sys.path.insert(0, BASICTS)
-sys.path.insert(0, os.path.join(BASICTS, 'baselines', 'STAEformer'))
-os.chdir(BASICTS)
+if BASICTS:
+    sys.path.insert(0, BASICTS)
+    sys.path.insert(0, os.path.join(BASICTS, 'baselines', 'STAEformer'))
+    os.chdir(BASICTS)
 
 import random
 import numpy as np
@@ -33,8 +35,7 @@ def main(dataset, epochs, seed=42, gpu='0'):
     cfg = cfg_mod.CFG
     cfg.TRAIN.NUM_EPOCHS = epochs
     cfg.TRAIN.CKPT_SAVE_DIR = os.path.join(
-        UC, 'EXPERIMENTS', 'UC-G3', 'checkpoints',
-        f'{dataset}_{epochs}_12_12_seed{seed}')
+        CKPT_DIR, f'{dataset}_{epochs}_12_12_seed{seed}')
     # load acceleration (PEMS07 N=883, officialconfigno num_workers causes GPU idle wait)
     cfg.TRAIN.DATA.NUM_WORKERS = 4
     cfg.TRAIN.DATA.PIN_MEMORY = True

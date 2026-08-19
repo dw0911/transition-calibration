@@ -15,10 +15,12 @@ import os, sys, json, time, argparse
 
 REPRO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASICTS = os.environ.get('BASICTS_ROOT', '')
+CKPT_DIR = os.environ.get('REPRO_CKPT_DIR', os.path.join(REPRO_ROOT, 'checkpoints'))
 UC = REPRO_ROOT
-sys.path.insert(0, BASICTS)
-sys.path.insert(0, os.path.join(BASICTS, 'baselines', 'STAEformer'))
-os.chdir(BASICTS)
+if BASICTS:
+    sys.path.insert(0, BASICTS)
+    sys.path.insert(0, os.path.join(BASICTS, 'baselines', 'STAEformer'))
+    os.chdir(BASICTS)
 
 import random
 import numpy as np
@@ -80,8 +82,7 @@ def main(dataset, max_epochs, seed=42, gpu='0'):
         model.train()
         return err_sum / max(cnt, 1)
 
-    ckpt_dir = os.path.join(UC, 'EXPERIMENTS', 'UC-G3', 'checkpoints',
-                            f'{dataset}_fast_4split_seed{seed}')
+    ckpt_dir = os.path.join(CKPT_DIR, f'{dataset}_fast_4split_seed{seed}')
     os.makedirs(ckpt_dir, exist_ok=True)
     best_mae, best_ep, patience_cnt = float('inf'), 0, 0
     MIN_EPOCHS, PATIENCE, MIN_DELTA = 20, 3, 0.01

@@ -18,6 +18,7 @@ REPRO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASELINES = os.environ.get('BASELINES_ROOT', '')
 PROCDIR = os.environ.get('REPRO_PROCDIR',
                          os.path.join(REPRO_ROOT, 'data_preprocessing', 'processed'))
+CKPT_DIR = os.environ.get('REPRO_CKPT_DIR', os.path.join(REPRO_ROOT, 'checkpoints'))
 UC = REPRO_ROOT
 sys.path.insert(0, os.path.join(BASELINES, 'common'))
 sys.path.insert(0, os.path.join(BASELINES, 'STID'))
@@ -64,7 +65,7 @@ def main(seed=42, max_epochs=100):
         model.train()
         return err_sum / max(cnt, 1)
 
-    ckpt_dir = os.path.join(UC, 'EXPERIMENTS', 'UC-G3', 'checkpoints', f'PEMS04_stid_fast_4split_seed{seed}')
+    ckpt_dir = os.path.join(CKPT_DIR, f'PEMS04_stid_fast_4split_seed{seed}')
     os.makedirs(ckpt_dir, exist_ok=True)
     best_mae, best_ep, patience = float('inf'), 0, 0
     MIN_EP, PATIENCE, MIN_DELTA = 20, 3, 0.01

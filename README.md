@@ -51,24 +51,47 @@ pytest tests/unit -q
 
 ## Reproduce the paper tables
 
-The experiments require the traffic forecasting point-forecast models. Please follow the
-checkpoint/pretrained-model instructions below first.
+The calibration method itself is fully self-contained (no data or GPU needed — see
+`tests/unit/`). Reproducing the **numbers in the paper tables** additionally requires
+(i) the trained point-forecast checkpoints and (ii) the PEMS data, both of which are shipped
+in the companion **data package** (not on GitHub). BasicTS (MIT) is used only to rebuild the
+STAEformer model architecture at inference time.
+
+### Data-package layout
+
+Place the data package so that the repository looks like:
+
+```
+reproducible_uc/
+├── checkpoints/                          # trained STAEformer checkpoints
+│   ├── PEMS04_r3_4split_seed42/best.pt
+│   ├── PEMS04_r3_4split_seed123/best.pt
+│   └── ...
+└── BasicTS/                              # BasicTS framework checkout (set BASICTS_ROOT)
+    └── datasets/PEMS04/data.dat, desc.json
+```
+
+Set the environment variables and run:
 
 ```bash
-# Reproduce the main calibration table (Table 4: unconditional / severity / flow-level /
-# predicted-magnitude Mondrian hard + interp, with WCE / GCD / per-group width)
+export BASICTS_ROOT=/path/to/BasicTS            # framework for model architecture
+export REPRO_CKPT_DIR=/path/to/reproducible_uc/checkpoints
+
+# Main calibration table (Table 4): unconditional / severity / flow-level / predicted-magnitude
+# Mondrian hard + interp, with WCE / GCD / per-group width / q_monotonic
 python experiments/reproduce_table4.py
 
-# Reproduce the window-level paired stationary bootstrap CI (method-effect deltaWCE / deltaGCD)
+# Window-level paired stationary bootstrap CI (method-effect deltaWCE / deltaGCD)
 python experiments/reproduce_bootstrap.py
 
-# Reproduce the normalized-conformal control (P1-9) and the flow-stratified bootstrap (P1-7/8)
+# Normalized-conformal control (P1-9) and flow-stratified bootstrap (P1-7/8)
 python experiments/conditioning_normalized.py
 python experiments/conditioning_flowstrat.py
-
-# Reproduce the train-inference scale equivalence gate (R3)
-python experiments/reproduce_equiv.py
 ```
+
+If your PEMS data was preprocessed with this repository (`data/preprocess.py`), set
+`REPRO_PROCDIR` to the directory containing `PEMS04_samples.npz` / `PEMS04_meta.pkl` /
+`PEMS04_timeidx.npz` for the legacy-backbone scripts (`experiments/train_stid.py`).
 
 ## Repository layout
 
@@ -80,6 +103,7 @@ experiments/          reproduction scripts for the paper tables and training ref
 tests/unit/           audit acceptance tests (pure NumPy)
 configs/              dataset configuration for the main reproduction runs
 figures/              generated figures
+SRC/                  backward-compatible import aliases (used by the scripts)
 ```
 
 ## Data

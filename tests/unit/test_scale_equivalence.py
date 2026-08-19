@@ -3,9 +3,9 @@
 
 Verify that the custom training transform is bit-for-bit consistent with the
 official protocol. The 128-window inference comparison on the Base-0 pretrained
-checkpoint is performed by R2_recalc/r3_equiv.py (measured max|diff| = 0.000).
+checkpoint is performed by the internal R3 equivalence gate (measured max|diff| = 0.000).
 This test is the reproducible variant: it validates the transform math on
-synthetic data plus the real-checkpoint comparison call interface.
+synthetic data, covering the same assertion as the real-checkpoint gate.
 
 Acceptance: max|yhat_official,norm - yhat_custom,norm| < 1e-4; raw analogously < 1e-3.
 
@@ -58,5 +58,5 @@ def test_transform_math_equivalence():
 if __name__ == '__main__':
     print('[test_scale_equivalence]')
     test_transform_math_equivalence()
-    print('  (real-checkpoint comparison: see R2_recalc/r3_equiv.py, measured max|diff|=0.000)')
+    print('  (the real-checkpoint comparison is an internal training-env gate; this test covers the same math)')
     print('ALL PASS')

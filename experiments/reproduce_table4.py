@@ -17,13 +17,17 @@ import json
 
 REPRO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASICTS = os.environ.get('BASICTS_ROOT', '')
+# Directory holding the trained model checkpoints (provided via the data package).
+# Expected layout: <CKPT_DIR>/<dataset>_r3_4split_seed<seed>/best.pt
+CKPT_DIR = os.environ.get('REPRO_CKPT_DIR', os.path.join(REPRO_ROOT, 'checkpoints'))
 UC = REPRO_ROOT
 EXP = os.path.join(UC, 'experiments', 'artifacts')
 
 sys.path.insert(0, os.path.join(UC, 'SRC'))
-sys.path.insert(0, BASICTS)
-sys.path.insert(0, os.path.join(BASICTS, 'baselines', 'STAEformer'))
-os.chdir(BASICTS)
+if BASICTS:
+    sys.path.insert(0, BASICTS)
+    sys.path.insert(0, os.path.join(BASICTS, 'baselines', 'STAEformer'))
+    os.chdir(BASICTS)
 
 import numpy as np                                  # noqa: E402
 import torch                                        # noqa: E402
@@ -113,8 +117,7 @@ def main():
 
         for seed in cfg['seeds']:
             print(f'\n--- {dataset} seed{seed} ---', flush=True)
-            ckpt = os.path.join(UC, 'EXPERIMENTS', 'UC-G3', 'checkpoints',
-                                f'{dataset}_r3_4split_seed{seed}', 'best.pt')
+            ckpt = os.path.join(CKPT_DIR, f'{dataset}_r3_4split_seed{seed}', 'best.pt')
             model = build_model(N).cuda()
             sd = torch.load(ckpt, map_location='cpu', weights_only=False)
             if isinstance(sd, dict) and 'model_state_dict' in sd:

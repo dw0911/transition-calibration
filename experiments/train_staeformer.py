@@ -23,10 +23,12 @@ import random
 
 REPRO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASICTS = os.environ.get('BASICTS_ROOT', '')
+CKPT_DIR = os.environ.get('REPRO_CKPT_DIR', os.path.join(REPRO_ROOT, 'checkpoints'))
 UC = REPRO_ROOT
-sys.path.insert(0, BASICTS)
-sys.path.insert(0, os.path.join(BASICTS, 'baselines', 'STAEformer'))
-os.chdir(BASICTS)
+if BASICTS:
+    sys.path.insert(0, BASICTS)
+    sys.path.insert(0, os.path.join(BASICTS, 'baselines', 'STAEformer'))
+    os.chdir(BASICTS)
 
 import numpy as np
 import torch
@@ -127,8 +129,7 @@ def main(dataset, max_epochs, seed=42, smoke=False):
         model.train()
         return err_sum / max(cnt, 1)
 
-    ckpt_dir = os.path.join(UC, 'EXPERIMENTS', 'UC-G3', 'checkpoints',
-                            f'{dataset}_r3_4split_seed{seed}')
+    ckpt_dir = os.path.join(CKPT_DIR, f'{dataset}_r3_4split_seed{seed}')
     os.makedirs(ckpt_dir, exist_ok=True)
     best_mae, best_ep, patience = float('inf'), 0, 0
     MIN_EP, PATIENCE, MIN_DELTA = 20, 3, 0.01
