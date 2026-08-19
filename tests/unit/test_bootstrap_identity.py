@@ -1,4 +1,3 @@
-REPRO_ROOT = Path(__file__).resolve().parents[2]
 # -*- coding: utf-8 -*-
 """R1: window-level paired stationary bootstrap (P0-7 acceptance).
 
@@ -8,8 +7,11 @@ REPRO_ROOT = Path(__file__).resolve().parents[2]
 """
 import os
 import sys
+from pathlib import Path
+
 import numpy as np
 
+REPRO_ROOT = Path(__file__).resolve().parents[2]
 UC = REPRO_ROOT
 sys.path.insert(0, os.path.join(UC, 'SRC'))
 import bootstrap as bs  # noqa
