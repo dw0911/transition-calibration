@@ -52,14 +52,14 @@ pytest tests/unit -q
 ## Reproduce the paper tables
 
 The calibration method itself is fully self-contained (no data or GPU needed — see
-`tests/unit/`). Reproducing the **numbers in the paper tables** additionally requires
-(i) the trained point-forecast checkpoints and (ii) the PEMS data, both of which are shipped
-in the companion **data package** (not on GitHub). BasicTS (MIT) is used only to rebuild the
-STAEformer model architecture at inference time.
+`tests/unit/` and `examples/`). Reproducing the **numbers in the paper tables** additionally
+requires (i) the PEMS data and (ii) the trained point-forecast checkpoints. Neither is
+redistributed here: the PEMS data must be downloaded from its official source (see
+`data/README.md`), and the checkpoints are either trained with this repository or taken from
+the official pretrained releases (see `checkpoints/README.md`). BasicTS (MIT) is used only to
+rebuild the STAEformer model architecture at inference time.
 
-### Data-package layout
-
-Place the data package so that the repository looks like:
+### Layout expected by the evaluation scripts
 
 ```
 reproducible_uc/
@@ -72,23 +72,21 @@ reproducible_uc/
     └── datasets/PEMS04/data.dat, desc.json
 ```
 
-#### Downloading the checkpoints
-
-The checkpoints are distributed as a compressed archive in the companion data package
-(e.g. a GitHub Release asset). Download and unpack them with the provided helper:
+**To reproduce the exact paper numbers**, train the checkpoints yourself with the provided
+scripts (the calibration is a post-hoc wrapper and never retrains the point-forecast model):
 
 ```bash
-# Method 1 -- helper script (downloads, sanitizes paths, optionally verifies SHA-256)
-export CHECKPOINT_URL=https://github.com/dw0911/transition-calibration/releases/download/v1.0/checkpoints_pems.zip
-python scripts/download_checkpoints.py --sha256 <expected-sha256>
+export BASICTS_ROOT=/path/to/BasicTS
+export REPRO_CKPT_DIR=/path/to/reproducible_uc/checkpoints
 
-# Method 2 -- manual
-#   Download checkpoints_pems.zip and unpack it so that the files land under checkpoints/:
-#   unzip checkpoints_pems.zip -d .
+python experiments/train_staeformer.py --dataset PEMS04 --epochs 100 --seed 42
+python experiments/train_staeformer.py --dataset PEMS04 --epochs 100 --seed 123
+python experiments/train_staeformer.py --dataset PEMS04 --epochs 100 --seed 456
+python experiments/train_staeformer.py --dataset PEMS03 --epochs 100 --seed 42
 ```
 
-The expected SHA-256 of each `best.pt` is listed in the data-package release notes
-(see also `checkpoints/README.md`).
+Alternatively, an official BasicTS pretrained checkpoint can be used for a quick sanity check
+(numbers will be close but not identical; see `checkpoints/README.md`).
 
 Set the environment variables and run:
 
@@ -121,7 +119,6 @@ data/                 PEMS preprocessing + time-index generation
 experiments/          reproduction scripts for the paper tables and training reference scripts
 tests/unit/           audit acceptance tests (pure NumPy)
 examples/             self-contained synthetic end-to-end demo (no data/GPU required)
-scripts/              utility scripts (e.g. checkpoint download helper)
 configs/              dataset configuration for the main reproduction runs
 figures/              generated figures
 checkpoints/          checkpoint layout + integrity notes (weights shipped via data package)
