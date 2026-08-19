@@ -21,7 +21,8 @@ CKPT_DIR = os.environ.get('REPRO_CKPT_DIR', os.path.join(REPRO_ROOT, 'checkpoint
 UC = REPRO_ROOT
 EXP = os.path.join(UC, 'experiments', 'artifacts')
 
-sys.path.insert(0, os.path.join(UC, 'SRC'))
+sys.path.insert(0, UC)                                # repo root (for calibration/evaluation)
+sys.path.insert(0, os.path.join(UC, 'SRC'))           # legacy import names
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 if BASICTS:
     sys.path.insert(0, os.path.join(BASICTS, 'baselines', 'STAEformer'))
