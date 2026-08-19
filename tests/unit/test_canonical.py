@@ -17,11 +17,10 @@ import numpy as np
 
 REPRO_ROOT = Path(__file__).resolve().parents[2]
 UC = REPRO_ROOT
-sys.path.insert(0, os.path.join(UC, 'SRC'))
 
-import conformal as cf            # noqa: E402
-import severity as sev            # noqa: E402
-import taxonomy as tx             # noqa: E402
+import calibration.mondrian as cf            # noqa: E402
+import calibration.severity as sev            # noqa: E402
+import calibration.taxonomy as tx             # noqa: E402
 
 PASS = []
 def check(name, cond):

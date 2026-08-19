@@ -24,7 +24,7 @@ UC = REPRO_ROOT
 EXP = os.path.join(UC, 'experiments', 'artifacts')
 
 sys.path.insert(0, UC)                                # repo root (for calibration/evaluation)
-sys.path.insert(0, os.path.join(UC, 'SRC'))           # legacy import names (conformal, ...)
+           # legacy import names (conformal, ...)
 if BASICTS:
     sys.path.insert(0, BASICTS)
     sys.path.insert(0, os.path.join(BASICTS, 'baselines', 'STAEformer'))
@@ -32,9 +32,9 @@ if BASICTS:
 
 import numpy as np                                  # noqa: E402
 import torch                                        # noqa: E402
-import conformal as cf                              # noqa: E402
-import taxonomy as tx                               # noqa: E402
-import severity as sev                              # noqa: E402
+import calibration.mondrian as cf                              # noqa: E402
+import calibration.taxonomy as tx                               # noqa: E402
+import calibration.severity as sev                              # noqa: E402
 
 ALPHA = 0.10
 IL, OL = 12, 12

@@ -1,8 +1,10 @@
 # Model checkpoints
 
-The trained point-forecast weights are **not** distributed with this repository. The
-calibration method is a *post-hoc* wrapper: it never retrains the point-forecast model, so any
-reasonable traffic-forecasting checkpoint can be plugged in.
+**No model checkpoints are distributed with this repository.** The trained point-forecast
+weights are either produced by the training scripts in this repository or downloaded from the
+official BasicTS release assets. The calibration method is a *post-hoc* wrapper: it never
+retrains the point-forecast model, so any reasonable traffic-forecasting checkpoint can be
+plugged in.
 
 ## How to obtain a checkpoint
 
@@ -26,7 +28,7 @@ python experiments/train_staeformer.py --dataset PEMS03 --epochs 100 --seed 42
 ```
 
 Each run writes `checkpoints/<dataset>_r3_4split_seed<seed>/best.pt` plus a `train_meta.json`
-provenance record. Training is ~2–4 hours per run on a single modern GPU.
+provenance record. Training is ~2-4 hours per run on a single modern GPU.
 
 ### Option B — use an official pretrained checkpoint
 

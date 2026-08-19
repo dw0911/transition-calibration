@@ -25,14 +25,13 @@ UC = REPRO_ROOT
 BASICTS = os.environ.get('BASICTS_ROOT', '')
 COURT = os.environ.get('COURT_ROOT', '')
 
-sys.path.insert(0, os.path.join(UC, 'SRC'))
 if COURT:
     sys.path.insert(0, os.path.join(COURT, 'EXPERIMENTS', 'C_headroom'))
 if BASICTS:
     sys.path.insert(0, BASICTS)
     os.chdir(BASICTS)
 
-import evaluation_protocol as ep  # noqa
+import evaluation.protocol as ep  # noqa
 
 
 def test_transform_math_equivalence():

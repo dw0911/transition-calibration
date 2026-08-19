@@ -15,12 +15,11 @@ import numpy as np
 
 REPRO_ROOT = Path(__file__).resolve().parents[2]
 UC = REPRO_ROOT
-sys.path.insert(0, os.path.join(UC, 'SRC'))
 
-import severity as sev            # noqa: E402
-import taxonomy as tx             # noqa: E402
-import conformal as cf            # noqa: E402
-import bootstrap as bs            # noqa: E402
+import calibration.severity as sev            # noqa: E402
+import calibration.taxonomy as tx             # noqa: E402
+import calibration.mondrian as cf            # noqa: E402
+import evaluation.bootstrap as bs            # noqa: E402
 
 ALPHA = 0.10
 NOMINAL = 1.0 - ALPHA

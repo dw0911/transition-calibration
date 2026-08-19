@@ -18,7 +18,7 @@ REPRO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, REPRO_ROOT)
 sys.path.insert(0, os.path.join(REPRO_ROOT, 'SRC'))
 
-import severity as sev  # noqa: E402
+import calibration.severity as sev  # noqa: E402
 
 T, N = 16992, 307          # PeMS04 dimensions
 L, H = 12, 12

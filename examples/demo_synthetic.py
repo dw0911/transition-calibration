@@ -20,13 +20,12 @@ import numpy as np
 
 # Make calibration/ and evaluation/ importable when run from anywhere.
 _ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-sys.path.insert(0, os.path.join(_ROOT, 'calibration'))
-sys.path.insert(0, os.path.join(_ROOT, 'evaluation'))
+sys.path.insert(0, _ROOT)
 
-import severity as sev        # noqa: E402
-import taxonomy as tx         # noqa: E402
-import mondrian as cf         # noqa: E402
-import bootstrap as bs        # noqa: E402
+import calibration.severity as sev        # noqa: E402
+import calibration.taxonomy as tx         # noqa: E402
+import calibration.mondrian as cf         # noqa: E402
+import evaluation.bootstrap as bs        # noqa: E402
 
 ALPHA = 0.10
 NOMINAL = 1.0 - ALPHA

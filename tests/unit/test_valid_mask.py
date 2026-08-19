@@ -14,9 +14,8 @@ import numpy as np
 
 REPRO_ROOT = Path(__file__).resolve().parents[2]
 UC = REPRO_ROOT
-sys.path.insert(0, os.path.join(UC, 'SRC'))
-import conformal as cf  # noqa
-import evaluation_protocol as ep  # noqa
+import calibration.mondrian as cf  # noqa
+import evaluation.protocol as ep  # noqa
 
 PASS = []
 def check(name, cond):

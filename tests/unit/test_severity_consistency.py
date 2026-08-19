@@ -13,8 +13,7 @@ import numpy as np
 
 REPRO_ROOT = Path(__file__).resolve().parents[2]
 UC = REPRO_ROOT
-sys.path.insert(0, os.path.join(UC, 'SRC'))
-import severity as sev  # noqa
+import calibration.severity as sev  # noqa
 
 PASS = []
 def check(name, cond):

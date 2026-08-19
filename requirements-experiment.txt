@@ -1,0 +1,11 @@
+# Additional dependencies for reproducing the paper tables / training scripts.
+# The core library only needs requirements.txt (NumPy + pandas + SciPy).
+#
+# Note: the reproduction scripts also need the external BasicTS framework checkout
+# (MIT license) to rebuild the STAEformer model architecture at inference time.
+# Set BASICTS_ROOT to point at the framework directory.
+
+torch>=2.0
+matplotlib>=3.6
+pyyaml>=6.0
+tqdm>=4.64
