@@ -1,0 +1,147 @@
+{
+ "tau": 0.7763932022500211,
+ "distribution": "iid U(0,1) \u56db\u5143\u7ec4\uff08\u8f93\u5165 2 \u6b65\u3001\u8f93\u51fa 2 \u6b65\uff09\uff1b**\u4e0d\u662f**\u9ad8\u65af",
+ "interval_definition": "\u9010\u70b9\u533a\u95f4\u5bf9\u4efb\u610f\u5386\u53f2\u6052\u4e3a [A, 1-A] = [0.05, 0.95]\uff0c\u9010\u6b65\u72ec\u7acb\u8986\u76d6 0.90",
+ "transition_rule": "|v2-v1| > tau = 1 - sqrt(0.05) \u21d2 P(\u8f6c\u53d8) = 0.05",
+ "analytic_posthoc_endpoint_coverage": 0.602786404500042,
+ "analytic_posthoc_endpoint_formula": "(1 - A/c)^2, c = sqrt(TRANS_P) = 1 - tau",
+ "analytic_posthoc_path_coverage": 0.3055728090000841,
+ "analytic_posthoc_path_formula": "((c - 2A)/c)^2 \u2014\u2014 \u4e24\u6b65**\u540c\u65f6**\u88ab\u8986\u76d6\u7684\u6761\u4ef6\u6982\u7387",
+ "quantities_note": "\u7aef\u70b9\u503c \u22480.6028 \u662f\"\u67d0\u4e2a\u672a\u6765\u7aef\u70b9\u88ab\u8986\u76d6\"\u7684\u6761\u4ef6\u6982\u7387\uff1b\u4e24\u6b65\u540c\u65f6\u8986\u76d6\u662f\u53e6\u4e00\u4e2a\u91cf \u22480.3056\u3002\u4e24\u8005\u4e0d\u5f97\u6df7\u79f0 simultaneous coverage\u3002",
+ "runs": {
+  "n=200000": {
+   "groups": {
+    "Normal": {
+     "n": 180475,
+     "pointwise_cov": 0.9153289929353096,
+     "pathwise_cov_pointwise_intervals": 0.8356448261532068,
+     "se_pointwise": 0.000655310982991357,
+     "se_path": 0.000872356555688427,
+     "ci95_normal_pointwise": [
+      0.9140445834086465,
+      0.9166134024619726
+     ],
+     "ci95_normal_path": [
+      0.8339350073040575,
+      0.8373546450023561
+     ]
+    },
+    "TypeA": {
+     "n": 9492,
+     "pointwise_cov": 0.9139275179098187,
+     "pathwise_cov_pointwise_intervals": 0.8352296670880741,
+     "se_pointwise": 0.0028787846325306803,
+     "se_path": 0.0038077076873470495,
+     "ci95_normal_pointwise": [
+      0.9082851000300586,
+      0.9195699357895789
+     ],
+     "ci95_normal_path": [
+      0.8277665600208739,
+      0.8426927741552743
+     ]
+    },
+    "TypeB": {
+     "n": 9529,
+     "pointwise_cov": 0.5985937663973134,
+     "pathwise_cov_pointwise_intervals": 0.30443908070101794,
+     "se_pointwise": 0.0050215118019749285,
+     "se_path": 0.004714049340658403,
+     "ci95_normal_pointwise": [
+      0.5887516032654426,
+      0.6084359295291842
+     ],
+     "ci95_normal_path": [
+      0.2951995439933275,
+      0.3136786174087084
+     ]
+    },
+    "TypeC": {
+     "n": 504,
+     "pointwise_cov": 0.5952380952380952,
+     "pathwise_cov_pointwise_intervals": 0.2718253968253968,
+     "se_pointwise": 0.021864014484894435,
+     "se_path": 0.019817438131590807,
+     "ci95_normal_pointwise": [
+      0.5523846268477022,
+      0.6380915636284883
+     ],
+     "ci95_normal_path": [
+      0.23298321808747882,
+      0.3106675755633148
+     ]
+    }
+   },
+   "width_multiplier_to_fix_pathwise": 1.0540925533894596,
+   "n_TypeC": 504,
+   "n_TypeB": 9529
+  },
+  "n=2000000": {
+   "groups": {
+    "Normal": {
+     "n": 1805027,
+     "pointwise_cov": 0.915422317782504,
+     "pathwise_cov_pointwise_intervals": 0.8365836078906299,
+     "se_pointwise": 0.00020710795792822347,
+     "se_path": 0.0002752077331121401,
+     "ci95_normal_pointwise": [
+      0.9150163861849647,
+      0.9158282493800434
+     ],
+     "ci95_normal_path": [
+      0.8360442007337301,
+      0.8371230150475297
+     ]
+    },
+    "TypeA": {
+     "n": 95189,
+     "pointwise_cov": 0.9161877948082237,
+     "pathwise_cov_pointwise_intervals": 0.8349494164241666,
+     "se_pointwise": 0.0008981575036432415,
+     "se_path": 0.0012032205277392996,
+     "ci95_normal_pointwise": [
+      0.9144274061010829,
+      0.9179481835153644
+     ],
+     "ci95_normal_path": [
+      0.8325911041897976,
+      0.8373077286585356
+     ]
+    },
+    "TypeB": {
+     "n": 94857,
+     "pointwise_cov": 0.600725302297142,
+     "pathwise_cov_pointwise_intervals": 0.3053438333491466,
+     "se_pointwise": 0.0015901539209660686,
+     "se_path": 0.0014953568063480645,
+     "ci95_normal_pointwise": [
+      0.5976086006120486,
+      0.6038420039822355
+     ],
+     "ci95_normal_path": [
+      0.3024129340087044,
+      0.3082747326895888
+     ]
+    },
+    "TypeC": {
+     "n": 4927,
+     "pointwise_cov": 0.6090927542114877,
+     "pathwise_cov_pointwise_intervals": 0.3020093363101279,
+     "se_pointwise": 0.006951640355246325,
+     "se_path": 0.006540993387704927,
+     "ci95_normal_pointwise": [
+      0.5954675391152049,
+      0.6227179693077705
+     ],
+     "ci95_normal_path": [
+      0.28918898927022624,
+      0.31482968335002953
+     ]
+    }
+   },
+   "width_multiplier_to_fix_pathwise": 1.0540925533894596,
+   "n_TypeC": 4927,
+   "n_TypeB": 94857
+  }
+ }
+}
