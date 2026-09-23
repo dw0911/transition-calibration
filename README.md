@@ -1,21 +1,25 @@
-# Beyond Marginal Coverage: Deployment-Observable Transition-Aware Uncertainty Calibration for Reliable Spatio-Temporal Forecasting
+# The Cost of Simultaneous Coverage in Multi-Horizon Traffic Forecasting
 
-## Paper
+Code, result records and figures for the revised study: an empirical comparison of
+post-hoc calibration programs on fixed forecasts over three PeMS networks and two
+backbones.  Pointwise calibration covers a complete 12-step node trajectory only
+57.2-63.1% of the time at a nominal 90%, and the simultaneous programs that repair it
+cost 1.49-3.06x the interval width, by an amount that varies across networks and
+backbones.
 
-This repository is the official implementation of the paper:
+Start here: [what reproduces, and how](revision/REPRODUCE.md).  One command checks the
+whole release in place:
 
-> **Beyond Marginal Coverage: Deployment-Observable Transition-Aware Uncertainty
-> Calibration for Reliable Spatio-Temporal Forecasting**
->
-> Ping Wang, Xiaoyuan Zhang
->
-> **Status:** Under review at *Applied Intelligence* (Springer).
+```bash
+python revision/scripts/check_release_tables.py
+```
 
-The core idea is that *marginal* conformal coverage is not enough for reliable
-spatio-temporal forecasting: when the traffic state undergoes an abrupt transition
-(e.g., sensor dropout or sudden congestion onset), the point forecast and its residual
-distribution both shift. The framework detects those transitions from **past-observable**
-information only and calibrates the prediction intervals accordingly.
+The earlier, submitted version of this work (titled *Beyond Marginal Coverage:
+Deployment-Observable Transition-Aware Uncertainty Calibration*) was desk-rejected and its
+files have been removed from the working tree.  They remain in history at commit `b143fc2`,
+and [`revision/LEGACY.md`](revision/LEGACY.md) records what differs between the two,
+including the corrections applied during the revision, so nothing that was ever reported is
+silently absent.
 
 ## What is included
 
@@ -32,7 +36,7 @@ information only and calibrates the prediction intervals accordingly.
 - **Severity-conditioned Mondrian conformal calibration** (`calibration/mondrian.py`)
   Hard-bin Mondrian conformal prediction (main method, retains the in-group finite-sample
   guarantee) plus a smooth interpolated variant (engineering enhancement). Includes the
-  pre-registered finite-sample quantile correction `k=ceil((n+1)(1-alpha))`.
+  the finite-sample quantile correction `k=ceil((n+1)(1-alpha))` `k=ceil((n+1)(1-alpha))`.
 
 - **Evaluation metrics and protocol** (`evaluation/`)
   - `protocol.py`: a single, frozen evaluation entry point (window conventions, valid-target

@@ -1,0 +1,64 @@
+{
+ "draft": false,
+ "checklist": "plan/pems08_unseal_checklist.yaml",
+ "signed_by": "Ping Wang",
+ "date": "2026-09-21",
+ "signed_utc": "2026-09-21T07:29:57+00:00",
+ "items": {
+  "U1": {
+   "evidence": [
+    "logs/queue_summary.jsonl",
+    "checkpoints\\PEMS08_e7_4split_seed42\\train_meta.json",
+    "checkpoints\\PEMS08_e7_4split_seed123\\train_meta.json",
+    "checkpoints\\PEMS08_e7_4split_seed456\\train_meta.json",
+    "checkpoints\\PEMS03_e7_4split_seed123\\train_meta.json",
+    "checkpoints\\PEMS03_e7_4split_seed456\\train_meta.json",
+    "checkpoints\\PEMS08_stid_e7_4split_seed42\\train_meta.json",
+    "checkpoints\\PEMS08_stid_e7_4split_seed123\\train_meta.json",
+    "checkpoints\\PEMS08_stid_e7_4split_seed456\\train_meta.json"
+   ],
+   "checked": "8/8 train_meta 存在、note 含 never read、returncode 全 0"
+  },
+  "U2": {
+   "evidence": {
+    "method_registry_sha256": "3e609f63b376a2f6f1d5707ec6de1ccdf51b42f8dc89835795f2bd2040e91116",
+    "protocol_sha256": "829a8a6712969c693292308888827d3ae066a63c310ed191bd8e0782f34c048d"
+   },
+   "checked": "签署后两文件 sha 若变化则签署失效"
+  },
+  "U3": {
+   "evidence": [
+    "audit/e7_script_equivalence.md",
+    "scripts/e7_export.py"
+   ],
+   "checked": "EQUIVALENT"
+  },
+  "U4": {
+   "evidence": [
+    "scripts/e7_metrics.py",
+    "results/phase2_E7/_validation.json"
+   ],
+   "checked": "PASS"
+  },
+  "U5": {
+   "evidence": [
+    "sections/4_experimental_setup.tex"
+   ],
+   "checked": "暴露史披露段已在工作副本稿件中"
+  },
+  "U6": {
+   "evidence": [
+    "plan/protocol.yaml",
+    "scripts/r2a_path_baselines.py",
+    "scripts/r2b_incremental_severity.py"
+   ],
+   "checked": "G1/G2/G3 与配对 bootstrap 实现在签署前冻结"
+  },
+  "U7": {
+   "evidence": "签署：Ping Wang 2026-09-21（作者本人，经会话确认）",
+   "checked": "理解解冻后 PEMS08 test 数字不得再用于修改方法或选择准则"
+  }
+ },
+ "scope": "仅授权导出与报告 PEMS08 test；不授权用其调方法/超参/报告口径（PLAN_FROZEN §9 不变）",
+ "draft_sha_at_signing": "bff1b7df01d81bc2ee7c7c9c10b15461d7e6c073ea96dca06348545430dc9c17"
+}

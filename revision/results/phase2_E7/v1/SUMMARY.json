@@ -1,0 +1,297 @@
+{
+ "groups": {
+  "PEMS03/stae": {
+   "n": 3,
+   "achieved_path_cov": {
+    "uncond": 0.5716586142510612,
+    "path_global": 0.8799721580602178,
+    "bonferroni_aH": 0.9475671583196773,
+    "nh_elem": 0.49356072628883113,
+    "nh_path": 0.8700428319198745,
+    "g0": 0.8700211950067139,
+    "g1": 0.8660326684383265
+   },
+   "width_V1_ratio_vs_uncond": {
+    "path_global": 1.9401358065551673,
+    "bonferroni_aH": 2.5846289034756498,
+    "nh_elem": 0.9488916113211059,
+    "nh_path": 1.7013482606232213,
+    "g0": 1.5751559720752004,
+    "g1": 1.5578822892922704
+   },
+   "width_allvalid_ratio_vs_uncond": {
+    "g1": 1.5346794922823455
+   },
+   "pooled_ratio_vs_uncond_diag": {
+    "path_global": 1.940123998209307,
+    "bonferroni_aH": 2.584615882913964,
+    "nh_elem": 0.9488821806397769,
+    "nh_path": 1.7013240695048,
+    "g0": 1.5751564125946762,
+    "g1": 1.5578786295883227
+   },
+   "typeC_realloc_element": 0.12602003207420936,
+   "typeB_realloc_element": -0.010132806396764837,
+   "typeC_incr_matched_g1_minus_g0": 0.034849704941799176,
+   "typeB_incr_matched_g1_minus_g0": -0.02924446895312227,
+   "g1_vs_g0_width_ratio_V1": 0.989034253144195,
+   "gate_pass_fraction": {
+    "g1__vs__g0": {
+     "G1_pass_frac": 1.0,
+     "G2_pass_frac": 0.0,
+     "gate_pass_frac": 0.0
+    },
+    "g1__vs__nh_elem": {
+     "G1_pass_frac": 1.0,
+     "G2_pass_frac": 0.0,
+     "gate_pass_frac": 0.0
+    },
+    "nh_elem__vs__uncond": {
+     "G1_pass_frac": 0.0,
+     "G2_pass_frac": 0.3333333333333333,
+     "gate_pass_frac": 0.0
+    },
+    "bonferroni_aH__vs__path_global": {
+     "G1_pass_frac": 1.0,
+     "G2_pass_frac": 0.0,
+     "gate_pass_frac": 0.0
+    },
+    "g1__vs__path_global": {
+     "G1_pass_frac": 0.0,
+     "G2_pass_frac": 1.0,
+     "gate_pass_frac": 0.0
+    },
+    "nh_path__vs__path_global": {
+     "G1_pass_frac": 0.0,
+     "G2_pass_frac": 1.0,
+     "gate_pass_frac": 0.0
+    },
+    "g1__vs__nh_path": {
+     "G1_pass_frac": 0.0,
+     "G2_pass_frac": 0.6666666666666666,
+     "gate_pass_frac": 0.0
+    }
+   }
+  },
+  "PEMS04/stae": {
+   "n": 3,
+   "achieved_path_cov": {
+    "uncond": 0.6289484882146312,
+    "path_global": 0.9011767282456212,
+    "bonferroni_aH": 0.950285993895377,
+    "nh_elem": 0.5316059920275543,
+    "nh_path": 0.8976091212881135,
+    "g0": 0.8941164903086971,
+    "g1": 0.8926672835742758
+   },
+   "width_V1_ratio_vs_uncond": {
+    "path_global": 2.0913083022957513,
+    "bonferroni_aH": 2.807185878244082,
+    "nh_elem": 0.9508855593173114,
+    "nh_path": 1.7628177298722683,
+    "g0": 1.5474121208816112,
+    "g1": 1.524629611964803
+   },
+   "width_allvalid_ratio_vs_uncond": {
+    "g1": 1.520464007222506
+   },
+   "pooled_ratio_vs_uncond_diag": {
+    "path_global": 2.0912952412164363,
+    "bonferroni_aH": 2.8071609852608987,
+    "nh_elem": 0.950887656266729,
+    "nh_path": 1.7628281729909585,
+    "g0": 1.5474215430224976,
+    "g1": 1.5246387106231698
+   },
+   "typeC_realloc_element": 0.15153407385169615,
+   "typeB_realloc_element": -0.02513699164226929,
+   "typeC_incr_matched_g1_minus_g0": 0.03602121485039522,
+   "typeB_incr_matched_g1_minus_g0": -0.036150670721477374,
+   "g1_vs_g0_width_ratio_V1": 0.985281914998776,
+   "gate_pass_fraction": {
+    "g1__vs__g0": {
+     "G1_pass_frac": 1.0,
+     "G2_pass_frac": 0.0,
+     "gate_pass_frac": 0.0
+    },
+    "g1__vs__nh_elem": {
+     "G1_pass_frac": 1.0,
+     "G2_pass_frac": 0.0,
+     "gate_pass_frac": 0.0
+    },
+    "nh_elem__vs__uncond": {
+     "G1_pass_frac": 0.0,
+     "G2_pass_frac": 0.3333333333333333,
+     "gate_pass_frac": 0.0
+    },
+    "bonferroni_aH__vs__path_global": {
+     "G1_pass_frac": 1.0,
+     "G2_pass_frac": 0.0,
+     "gate_pass_frac": 0.0
+    },
+    "g1__vs__path_global": {
+     "G1_pass_frac": 0.0,
+     "G2_pass_frac": 1.0,
+     "gate_pass_frac": 0.0
+    },
+    "nh_path__vs__path_global": {
+     "G1_pass_frac": 1.0,
+     "G2_pass_frac": 1.0,
+     "gate_pass_frac": 1.0
+    },
+    "g1__vs__nh_path": {
+     "G1_pass_frac": 0.0,
+     "G2_pass_frac": 1.0,
+     "gate_pass_frac": 0.0
+    }
+   }
+  },
+  "PEMS08/stae": {
+   "n": 3,
+   "achieved_path_cov": {
+    "uncond": 0.6314801853482871,
+    "path_global": 0.9024549382860755,
+    "bonferroni_aH": 0.9710809118278418,
+    "nh_elem": 0.5760515144107066,
+    "nh_path": 0.9054097498735804,
+    "g0": 0.9088110762457484,
+    "g1": 0.9081798159689315
+   },
+   "width_V1_ratio_vs_uncond": {
+    "path_global": 1.9144588514385408,
+    "bonferroni_aH": 3.057834611860676,
+    "nh_elem": 0.8900616675194032,
+    "nh_path": 1.549532201238234,
+    "g0": 1.503502692390606,
+    "g1": 1.4852446733375169
+   },
+   "width_allvalid_ratio_vs_uncond": {
+    "g1": 1.4798047307333253
+   },
+   "pooled_ratio_vs_uncond_diag": {
+    "path_global": 1.914416031062466,
+    "bonferroni_aH": 3.0580224079307046,
+    "nh_elem": 0.8900654061134874,
+    "nh_path": 1.549536044551124,
+    "g0": 1.5034874547873631,
+    "g1": 1.4852343891424107
+   },
+   "typeC_realloc_element": 0.10414696744563012,
+   "typeB_realloc_element": -0.0209373890401231,
+   "typeC_incr_matched_g1_minus_g0": 0.03381511999639786,
+   "typeB_incr_matched_g1_minus_g0": -0.025817651004063524,
+   "g1_vs_g0_width_ratio_V1": 0.9878587695128785,
+   "gate_pass_fraction": {
+    "g1__vs__g0": {
+     "G1_pass_frac": 1.0,
+     "G2_pass_frac": 0.0,
+     "gate_pass_frac": 0.0
+    },
+    "g1__vs__nh_elem": {
+     "G1_pass_frac": 1.0,
+     "G2_pass_frac": 0.0,
+     "gate_pass_frac": 0.0
+    },
+    "nh_elem__vs__uncond": {
+     "G1_pass_frac": 0.0,
+     "G2_pass_frac": 1.0,
+     "gate_pass_frac": 0.0
+    },
+    "bonferroni_aH__vs__path_global": {
+     "G1_pass_frac": 1.0,
+     "G2_pass_frac": 0.0,
+     "gate_pass_frac": 0.0
+    },
+    "g1__vs__path_global": {
+     "G1_pass_frac": 1.0,
+     "G2_pass_frac": 1.0,
+     "gate_pass_frac": 1.0
+    },
+    "nh_path__vs__path_global": {
+     "G1_pass_frac": 1.0,
+     "G2_pass_frac": 1.0,
+     "gate_pass_frac": 1.0
+    },
+    "g1__vs__nh_path": {
+     "G1_pass_frac": 1.0,
+     "G2_pass_frac": 0.0,
+     "gate_pass_frac": 0.0
+    }
+   }
+  },
+  "PEMS08/stid": {
+   "n": 3,
+   "achieved_path_cov": {
+    "uncond": 0.613995224524378,
+    "path_global": 0.9015797693081365,
+    "bonferroni_aH": 0.9679095405697753,
+    "nh_elem": 0.5476034993363673,
+    "nh_path": 0.8981862569447002,
+    "g0": 0.902589450864955,
+    "g1": 0.9016729792694349
+   },
+   "width_V1_ratio_vs_uncond": {
+    "path_global": 1.9072907308401363,
+    "bonferroni_aH": 2.8502724028844924,
+    "nh_elem": 0.9290947277080814,
+    "nh_path": 1.7416513675204852,
+    "g0": 1.5368659430129448,
+    "g1": 1.5192926251451968
+   },
+   "width_allvalid_ratio_vs_uncond": {
+    "g1": 1.513620738338427
+   },
+   "pooled_ratio_vs_uncond_diag": {
+    "path_global": 1.9072774958131211,
+    "bonferroni_aH": 2.850276773242502,
+    "nh_elem": 0.9290824196149083,
+    "nh_path": 1.741645790456497,
+    "g0": 1.5368420101654738,
+    "g1": 1.5192671018528061
+   },
+   "typeC_realloc_element": 0.11768775148486083,
+   "typeB_realloc_element": -0.019335621572572625,
+   "typeC_incr_matched_g1_minus_g0": 0.049308429424598677,
+   "typeB_incr_matched_g1_minus_g0": -0.037227285280309386,
+   "g1_vs_g0_width_ratio_V1": 0.9885644521740882,
+   "gate_pass_fraction": {
+    "g1__vs__g0": {
+     "G1_pass_frac": 1.0,
+     "G2_pass_frac": 0.0,
+     "gate_pass_frac": 0.0
+    },
+    "g1__vs__nh_elem": {
+     "G1_pass_frac": 1.0,
+     "G2_pass_frac": 0.0,
+     "gate_pass_frac": 0.0
+    },
+    "nh_elem__vs__uncond": {
+     "G1_pass_frac": 0.0,
+     "G2_pass_frac": 1.0,
+     "gate_pass_frac": 0.0
+    },
+    "bonferroni_aH__vs__path_global": {
+     "G1_pass_frac": 1.0,
+     "G2_pass_frac": 0.0,
+     "gate_pass_frac": 0.0
+    },
+    "g1__vs__path_global": {
+     "G1_pass_frac": 1.0,
+     "G2_pass_frac": 1.0,
+     "gate_pass_frac": 1.0
+    },
+    "nh_path__vs__path_global": {
+     "G1_pass_frac": 0.6666666666666666,
+     "G2_pass_frac": 1.0,
+     "gate_pass_frac": 0.6666666666666666
+    },
+    "g1__vs__nh_path": {
+     "G1_pass_frac": 1.0,
+     "G2_pass_frac": 1.0,
+     "gate_pass_frac": 1.0
+    }
+   }
+  }
+ },
+ "ratio_definition": "mean of per-configuration ratios (equal weight over seeds), as declared in Appendix \"Bootstrap Settings\"; the pooled ratio-of-means is kept only as a diagnostic column"
+}
