@@ -1,5 +1,8 @@
-# Hash-stable checkouts: the digests in revision/RELEASE_MANIFEST.json are computed over LF text, so line-ending translation must be disabled.
-* text=auto eol=lf
+# Byte-faithful checkouts: the digests in revision/RELEASE_MANIFEST.json and the
+# source hashes recorded in revision/paper/figure_data/plotted_values.json are
+# computed over the exact bytes committed here, so git must not translate line
+# endings at all.
+* -text
 *.pdf binary
 *.png binary
 *.npz binary
