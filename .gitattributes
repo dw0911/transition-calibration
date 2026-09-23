@@ -1,0 +1,9 @@
+# Hash-stable checkouts: the digests in revision/RELEASE_MANIFEST.json are computed over LF text, so line-ending translation must be disabled.
+* text=auto eol=lf
+*.pdf binary
+*.png binary
+*.npz binary
+*.pt binary
+*.gz binary
+*.zip binary
+*.pkl binary
